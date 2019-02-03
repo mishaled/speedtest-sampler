@@ -1,0 +1,43 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "node",
+            "request": "attach",
+            "name": "Attach by Process ID",
+            "processId": "${command:PickProcess}"
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Mocha Tests",
+            "program": "${workspaceRoot}/node_modules/mocha/bin/_mocha",
+            "sourceMaps": true,
+            "args": [
+                "--colors",
+                "--no-timeouts",
+                "build/Tests/**/*.spec.js"
+            ],
+            "cwd": "${workspaceRoot}",
+            "runtimeExecutable": null,
+            "env": {
+                "NODE_ENV": "test"
+            },
+            "stopOnEntry": false,
+            "outFiles": []
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Launch Program",
+            "program": "${file}",
+            "sourceMaps": true,
+            "env": {
+                "NODE_ENV": "test"
+            },
+            "outFiles": [
+                "${workspaceRoot}/**/*.js"
+            ]
+        }
+    ]
+}
